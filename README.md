@@ -1,4 +1,4 @@
-# Travel Info Web Application: TravelHelp
+# TravelBug WebApp
 
 A webpage application to display nearby resturants and useful places, and provide a text translation. 
 
