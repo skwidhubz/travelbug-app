@@ -1,2 +1,3 @@
-# travel-info-app
-Maps and Information for a person travelling
+# Travel Info Web Application
+
+A webpage to display useful information for a selected location.
