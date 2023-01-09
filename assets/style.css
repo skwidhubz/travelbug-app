@@ -1,24 +1,45 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .header ul li {
-    display: inline;
+  display: inline;
 }
 
 .webNavigationButtons ul li {
-    margin-left: 25px;
-    position: relative;
-    font-size: x-large;
+  margin-left: 25px;
+  position: relative;
+  font-size: x-large;
 }
 
 .header {
-    padding: 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: rgb(188, 2, 2);
-    color: #ffffff;
-    display: flex;
-    justify-content: space-between;
+  padding: 20px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background-color: rgb(188, 2, 2);
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+}
+.block-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 5px;
+}
+#text-box {
+  height: 30px;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+#btn-control {
+  background-color: #ffffff;
+  height: 30px;
+  width: 50px;
+}
+a {
+  text-decoration: none;
+  color: #ffffff;
 }
