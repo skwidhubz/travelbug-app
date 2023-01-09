@@ -28,9 +28,12 @@
   justify-content: center;
   margin-top: 10px;
   padding: 5px;
+  flex-wrap: wrap;
 }
+
 #text-box {
   background-color: #dddddd;
+  margin-left: 88px;
   text-align: center;
   color: #666666;
   padding: 1em;
@@ -74,7 +77,30 @@
   width: 133px;
   transition: all 0.2s;
 }
+
+#btn-locate {
+  margin: auto;
+  margin-top: 10px;
+  margin-left: 10px;
+  justify-content: center;
+  padding: 0.37em 1.2em;
+  border: 0.1em solid #9c8c8c;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #000000;
+  text-align: center;
+  width: 99px;
+  transition: all 0.2s;
+}
+
 #btn-control:hover {
+  color: #000000;
+  background-color: #ffffff;
+}
+#btn-locate:hover {
   color: #000000;
   background-color: #ffffff;
 }
