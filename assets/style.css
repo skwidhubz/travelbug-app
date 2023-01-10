@@ -5,11 +5,20 @@
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+
+
+/* HEADER AND NAVBAR  */
+
 .header ul li {
   display: inline;
 }
 
-.webNavigationButtons ul li {
+.navbar-links ul li {
   margin-left: 25px;
   position: relative;
   font-size: x-large;
@@ -25,7 +34,19 @@
   justify-content: space-between;
 }
 
-.search {
+.main-header {
+
+}
+
+/* PAGE CONTAINERS */
+
+.page-container {
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+}
+
+#search-page {
   display: flex;
   justify-content: center;
   margin-top: 10px;
@@ -44,18 +65,9 @@
   width: 50px;
 }
 
-a {
-  text-decoration: none;
-  color: #ffffff;
-}
 
 #hidden-container {
   display: none;
 }
 
 
-.page-container {
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-}
