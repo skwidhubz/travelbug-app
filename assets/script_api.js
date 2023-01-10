@@ -5,6 +5,12 @@
 // get latlong from js method.(geolocation method): 
 GeolocationCoordinates
 
+function fetchPlaceName() {
+    // fetch from geoCode API
+    // return plaecname
+    // add to element
+}
+
 
 // airvisual api: (air quality in nearest city)
 // http://api.airvisual.com/v2/nearest_city?lat={{LATITUDE}}&lon={{LONGITUDE}}&key=
@@ -12,3 +18,11 @@ GeolocationCoordinates
 
 // get latlong from js method.(geolocation method)
 GeolocationCoordinates
+
+function fetchAirData() {
+    // fetch from airvisual API
+    // return air data
+    // add to element
+}
+
+

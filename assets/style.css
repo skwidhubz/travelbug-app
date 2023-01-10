@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -23,35 +24,38 @@
   display: flex;
   justify-content: space-between;
 }
+
 .search {
   display: flex;
   justify-content: center;
   margin-top: 10px;
   padding: 5px;
 }
+
 #text-box {
   height: 30px;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
 #btn-control {
   background-color: #ffffff;
   height: 30px;
   width: 50px;
 }
+
 a {
   text-decoration: none;
   color: #ffffff;
 }
 
-#hide1 {
+#hidden-container {
   display: none;
 }
 
-#hide2 {
-  display: none;
-}
 
-#hide3 {
-  display: none;
+.page-container {
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
 }
