@@ -38,3 +38,6 @@ historyEl.addEventListener("click", searchHistory);
 // function searchHistorySave(){
 //     save each user search "location name" --> saves to localStorage
 // }
+
+
+// soem test code by TransformStream
