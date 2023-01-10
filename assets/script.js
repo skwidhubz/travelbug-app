@@ -13,7 +13,7 @@ historyEl.addEventListener("click", searchHistory)
 //     save each user search "location name" --> saves to localStorage
 // }
 
-GeolocationCoordinates
+
 
 
 function fetchAirData() {
@@ -27,10 +27,11 @@ function fetchAirData() {
       };
       
       fetch("http://api.airvisual.com/v2/city?city=Los Angeles&state=California&country=USA&key=3e4ec6e7-66fd-4056-9d5b-874e8d797d7c", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
+        .then(response => response.json())
+        .then(result => data = result)
         .catch(error => console.log('error', error));
         airQualityDataEl.appendChild(airQualityLi);
+        airQualityLi.textContent = data.data.Country
 }
 
 var returnButtonEl = document.getElementById("#returnButton")
@@ -40,6 +41,3 @@ function returnToSearch() {
     console.log("button works")
 }
 
-
-
-// edit edit 
