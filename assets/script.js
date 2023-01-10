@@ -2,6 +2,8 @@
 const btnSubmit = document.getElementById("submit-btn");
 const btnFind = document.getElementById("find-btn");
 const textBox = document.getElementById("text-box");
+const historyEl = document.getElementById("history1");
+const historyList = document.getElementById("historyList");
 
 // Kayhan Objective Function
 function objective() {
@@ -25,9 +27,6 @@ const buttonFindLocationHandler = function (e) {
 btnSubmit.addEventListener("click", buttonSubmitHandler);
 
 btnFind.addEventListener("click", buttonFindLocationHandler);
-var historyEl = document.getElementById("history1");
-var historyList = document.getElementById("historyList");
-var textBox = document.getElementById("text-box");
 
 // SEARCH HISTORY FUNCTION (HISTORY PAGE)((LOCAL STORAGE))
 function searchHistory() {
