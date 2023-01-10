@@ -62,38 +62,12 @@
 
 #btn-control {
   margin: auto;
-  margin-top: 10px;
   display: flex;
-  justify-content: center;
-  padding: 0.37em 1.2em;
-  border: 0.1em solid #9c8c8c;
-  border-radius: 0.12em;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  color: #000000;
-  text-align: center;
-  width: 133px;
-  transition: all 0.2s;
+  margin-top: 5px;
 }
 
 #btn-locate {
-  margin: auto;
-  margin-top: 10px;
-  margin-left: 10px;
-  justify-content: center;
-  padding: 0.37em 1.2em;
-  border: 0.1em solid #9c8c8c;
-  border-radius: 0.12em;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  color: #000000;
-  text-align: center;
-  width: 99px;
-  transition: all 0.2s;
+  margin: 10px;
 }
 
 #btn-control:hover {
