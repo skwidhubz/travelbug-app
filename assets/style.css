@@ -34,17 +34,18 @@ a {
 /* PAGE CONTAINERS */
 
 .page-container {
-  border-style: solid;
+  margin: 20px;
   border-color: black;
   border-width: 2px;
-}
-
-#search-page {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
-  padding: 5px;
+}
+
+#searchpage {
+  align-items: center;
+  display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 #text-box {
@@ -101,5 +102,9 @@ a {
 }
 
 #hidden-container {
+  display: none;
+}
+
+.hide {
   display: none;
 }

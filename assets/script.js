@@ -1,7 +1,7 @@
 // Variables for buttons
-const btnSubmit = document.getElementById("btn-control");
-const btnLocate = document.getElementById("btn-locate");
-let text = document.getElementById("text-box");
+const btnSubmit = document.getElementById("submit-btn");
+const btnFind = document.getElementById("find-btn");
+const textBox = document.getElementById("text-box");
 
 // Kayhan Objective Function
 function objective() {
@@ -11,14 +11,17 @@ function objective() {
 }
 
 const buttonSubmitHandler = function (e) {
-  // Not completed not working
+  // Submit Button
   e.preventDefault();
-  text.innerHTML = "";
-  let language = textBox.value;
-  console.log(language);
-  return console.log("hi");
+  console.log("Hello");
 };
 
-buttonSubmitHandler();
+const buttonFindLocationHandler = function (e) {
+  // Submit Button
+  e.preventDefault();
+  console.log("Hello");
+};
 
 btnSubmit.addEventListener("click", buttonSubmitHandler);
+
+btnFind.addEventListener("click", buttonFindLocationHandler);
