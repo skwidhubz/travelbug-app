@@ -1,17 +1,15 @@
-<<<<<<< HEAD
-=======
 // geoCoding API: (get city or town name from latlng co-ordinates)
 // https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=
 // AIzaSyBrNLhoIcFa9qPY_bPWF-qVPVF9qRS3dc8
 
 // get latlong from js method.(geolocation method): 
-GeolocationCoordinates
+// GeolocationCoordinates
 
-function fetchPlaceName() {
+// function fetchPlaceName() {
     // fetch from geoCode API
     // return plaecname
     // add to element
-}
+// }
 
 
 // airvisual api: (air quality in nearest city)
@@ -19,13 +17,27 @@ function fetchPlaceName() {
 // 3e4ec6e7-66fd-4056-9d5b-874e8d797d7c
 
 // get latlong from js method.(geolocation method)
-GeolocationCoordinates
+// GeolocationCoordinates
+
+// var airDataURL = "http://api.airvisual.com/v2/nearest_city?key=3e4ec6e7-66fd-4056-9d5b-874e8d797d7c"
 
 function fetchAirData() {
     // fetch from airvisual API
     // return air data
     // add to element
+    // fetch(airDataURL)
+    // .then(console.log)
+    // then create LI items for each desired API data set
+
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+      
+      fetch("http://api.airvisual.com/v2/city?city=Los Angeles&state=California&country=USA&key=3e4ec6e7-66fd-4056-9d5b-874e8d797d7c", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
 }
 
 
->>>>>>> bcc7539ead3bd50b92e556bf5af19738c55130e1

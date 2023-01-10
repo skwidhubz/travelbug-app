@@ -65,15 +65,20 @@ a {
   width: 50px;
 }
 
-<<<<<<< HEAD
 #hidden-page {
   display: none;
 }
-=======
 
 #hidden-container {
   display: none;
 }
 
 
->>>>>>> bcc7539ead3bd50b92e556bf5af19738c55130e1
+/* AIR QUALITY PAGE  */
+
+#airquality {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
