@@ -22,12 +22,9 @@
 // var airDataURL = "http://api.airvisual.com/v2/nearest_city?key=3e4ec6e7-66fd-4056-9d5b-874e8d797d7c"
 
 function fetchAirData() {
-    // fetch from airvisual API
-    // return air data
-    // add to element
-    // fetch(airDataURL)
-    // .then(console.log)
-    // then create LI items for each desired API data set
+
+    var airQualityDataEl= document.getElementById("list")
+    var airQualityLi = document.createElement("li");
 
     var requestOptions = {
         method: 'GET',
@@ -38,6 +35,14 @@ function fetchAirData() {
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
+        airQualityDataEl.appendChild(airQualityLi);
+}
+
+var returnButtonEl = document.getElementById("#returnButton")
+returnButtonEl.addEventListener("click", returnToSearch)
+
+function returnToSearch() {
+    console.log("button works")
 }
 
 
