@@ -83,6 +83,9 @@ a {
   margin-top: 5px;
 }
 
+#hidden-page {
+  display: none;
+}
 #btn-locate {
   margin: 10px;
 }
@@ -103,6 +106,15 @@ a {
 
 #hidden-container {
   display: none;
+}
+
+
+/* AIR QUALITY PAGE  */
+
+#airquality {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hide {
