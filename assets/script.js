@@ -36,6 +36,27 @@ function searchHistory() {
   historyList.appendChild(li);
 }
 
+const getLocation = function () {
+  const city = "paris";
+  const OpenApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=54f233828acf58994eefa05b9027dd89`;
+
+  fetch(OpenApi)
+    .then((response) => response.json())
+    .then((response) => console.log(response));
+};
+
+getLocation();
+
+// Google API
+const locateMe = function (lat, lng) {
+  const GoogleApi = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyBrNLhoIcFa9qPY_bPWF-qVPVF9qRS3dc8`;
+
+  fetch(GoogleApi)
+    .then((response) => response.json())
+    .then((response) => console.log(response));
+};
+locateMe(-37.96944, 145.04806);
+
 btnSubmit.addEventListener("click", areaText);
 btnFind.addEventListener("click", buttonFindLocationHandler);
 // historyEl.addEventListener("click", searchHistory);
