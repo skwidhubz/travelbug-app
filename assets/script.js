@@ -69,5 +69,3 @@ function returnToSearch() {
 }
 
 
-// soem test code by TransformStream
-
