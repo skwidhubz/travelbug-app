@@ -12,6 +12,7 @@ const aboutUsPage = document.getElementById("aboutuspage");
 const myErrorBox = document.querySelector(".control");
 
 
+
 // Kayhan Objective Function
 function objective() {
   // connect text-box to submit button and get my location
@@ -82,9 +83,11 @@ const locateMe = function (lat, lng) {
 //     save each user search "location name" --> saves to localStorage
 // }
 
+
 function getC() {
   navigator.geolocation.getCurrentPosition(successCallback);
 }
+
 
 
 function getC() {
@@ -119,6 +122,22 @@ function streetAdd(address) {
     });
 }
 
+
+
+
+
+//  RETURN TO MAIN PAGE BUTTON 
+var returnButtonEl = document.getElementById("return-to-search-page-button")
+returnButtonEl.addEventListener("click", returnToSearch)
+
+function returnToSearch() {
+    console.log("button works")
+    searchPage.setAttribute("style", "display: flex");
+    airQualityPage.setAttribute("style", "display: none");
+    searchHistoryPage.setAttribute("style", "display: none");
+    aboutUsPage.setAttribute("style", "display: none");
+    // setAttribute("class-name", "new class")
+}
 
 
 btnSubmit.addEventListener("click", areaText);
@@ -146,6 +165,13 @@ function fetchAirData() {
 }
 
 
+var returnButtonEl = document.getElementById("return-to-search-page-button");
+returnButtonEl.addEventListener("click", returnToSearch);
+
+function returnToSearch() {
+  console.log("button works")
+
+
 
 
 
@@ -158,6 +184,7 @@ const returnButtonEl = document.getElementById("return-to-search-page-button");
 returnButtonEl.addEventListener("click", returnToSearch);
 
 function returnToSearch() {
+
   searchPage.setAttribute("style", "display: flex");
   airQualityPage.setAttribute("style", "display: none");
   searchHistoryPage.setAttribute("style", "display: none");
