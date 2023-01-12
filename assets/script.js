@@ -170,7 +170,7 @@ returnButtonEl.addEventListener("click", returnToSearch);
 
 function returnToSearch() {
   console.log("button works")
-
+}
 
 
 
@@ -180,8 +180,8 @@ function returnToSearch() {
 
 // RETURN TO SEARCH BUTTON LISTENER AND FUNCTION
 
-const returnButtonEl = document.getElementById("return-to-search-page-button");
-returnButtonEl.addEventListener("click", returnToSearch);
+// const returnButtonEl = document.getElementById("return-to-search-page-button");
+// returnButtonEl.addEventListener("click", returnToSearch);
 
 function returnToSearch() {
 
