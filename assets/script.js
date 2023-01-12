@@ -10,6 +10,16 @@ const searchHistoryPage = document.getElementById("historypage");
 const aboutUsPage = document.getElementById("aboutuspage");
 const myErrorBox = document.querySelector(".control");
 
+
+
+
+// Kayhan Objective Function
+function objective() {
+  // connect text-box to submit button and get my location
+  // need a button for locating me automactically
+  // gonna be using function expressions
+}
+
 const areaText = function (e) {
   e.preventDefault();
   const language = textBox.value;
@@ -67,13 +77,24 @@ const locateMe = function (lat, lng) {
     .then((response) => console.log(response));
 };
 
+
 const successCallback = (position) => {
   console.log(position);
 };
 
+// historyEl.addEventListener("click", searchHistory);
+
+// function searchHistorySave(){
+//     save each user search "location name" --> saves to localStorage
+// }
+
+
 function getC() {
   navigator.geolocation.getCurrentPosition(successCallback);
 }
+
+
+
 
 function getC() {
   navigator.geolocation.getCurrentPosition(successCallback);
@@ -126,9 +147,112 @@ function fetchAirData(lat, lon) {
     });
 }
 
+
 // const returnButtonEl = document.getElementById("#returnButton");
 btnSubmit.addEventListener("click", areaText);
 btnFind.addEventListener("click", buttonFindLocationHandler);
 btnSubmit.addEventListener("click", areaText);
 btnFind.addEventListener("click", buttonFindLocationHandler);
 returnButtonEl.addEventListener("click", returnToSearch);
+
+
+
+
+
+//  RETURN TO MAIN PAGE BUTTON 
+var returnButtonEl = document.getElementById("return-to-search-page-button")
+returnButtonEl.addEventListener("click", returnToSearch)
+
+function returnToSearch() {
+    console.log("button works")
+    searchPage.setAttribute("style", "display: flex");
+    airQualityPage.setAttribute("style", "display: none");
+    searchHistoryPage.setAttribute("style", "display: none");
+    aboutUsPage.setAttribute("style", "display: none");
+    // setAttribute("class-name", "new class")
+}
+
+
+btnSubmit.addEventListener("click", areaText);
+btnFind.addEventListener("click", buttonFindLocationHandler);
+
+function fetchAirData() {
+  var airQualityDataEl = document.getElementById("list");
+  var airQualityLi = document.createElement("li");
+
+  var requestOptions = {
+    method: "GET",
+    redirect: "follow",
+  };
+
+  fetch(
+    "http://api.airvisual.com/v2/city?city=Los Angeles&state=California&country=USA&key=" +
+      apiKeyAq,
+    requestOptions
+  )
+    .then((response) => response.json())
+    .then((result) => (data = result))
+    .catch((error) => console.log("error", error));
+  airQualityDataEl.appendChild(airQualityLi);
+  airQualityLi.textContent = data.data.Country;
+}
+
+
+var returnButtonEl = document.getElementById("return-to-search-page-button");
+returnButtonEl.addEventListener("click", returnToSearch);
+
+function returnToSearch() {
+  console.log("button works")
+
+
+
+
+
+
+
+
+// RETURN TO SEARCH BUTTON LISTENER AND FUNCTION
+
+const returnButtonEl = document.getElementById("return-to-search-page-button");
+returnButtonEl.addEventListener("click", returnToSearch);
+
+function returnToSearch() {
+
+  searchPage.setAttribute("style", "display: flex");
+  airQualityPage.setAttribute("style", "display: none");
+  searchHistoryPage.setAttribute("style", "display: none");
+  aboutUsPage.setAttribute("style", "display: none");
+}
+
+// NAV BAR EVEN LISTENERS AND FUNCTIONS
+
+const navSearchEl = document.getElementById("location-search-nav");
+navSearchEl.addEventListener("click", returnToSearch);
+
+const navAirEl = document.getElementById("air-quality-nav");
+navAirEl.addEventListener("click", airQualityPageFunc);
+function airQualityPageFunc(){
+  searchPage.setAttribute("style", "display: none");
+  airQualityPage.setAttribute("style", "display: flex");
+  searchHistoryPage.setAttribute("style", "display: none");
+  aboutUsPage.setAttribute("style", "display: none");
+}
+
+const navHistoryEl = document.getElementById("search-history-nav");
+navHistoryEl.addEventListener("click", searchHistoryPageFunc);
+function searchHistoryPageFunc(){
+  searchPage.setAttribute("style", "display: none");
+  airQualityPage.setAttribute("style", "display: none");
+  searchHistoryPage.setAttribute("style", "display: flex");
+  aboutUsPage.setAttribute("style", "display: none");
+}
+
+const navAboutEl = document.getElementById("about-us-nav");
+navAboutEl.addEventListener("click", aboutUsPageFunc);
+function aboutUsPageFunc(){
+  searchPage.setAttribute("style", "display: none");
+  airQualityPage.setAttribute("style", "display: none");
+  searchHistoryPage.setAttribute("style", "display: none");
+  aboutUsPage.setAttribute("style", "display: flex");
+}
+
