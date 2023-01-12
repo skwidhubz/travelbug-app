@@ -75,6 +75,7 @@ const locateMe = function (lat, lng) {
 // function searchHistorySave(){
 //     save each user search "location name" --> saves to localStorage
 // }
+
 const successCallback = (position) => {
   console.log(position);
 };
@@ -96,3 +97,35 @@ function streetAdd(address) {
 
 btnSubmit.addEventListener("click", areaText);
 btnFind.addEventListener("click", buttonFindLocationHandler);
+
+
+
+
+
+
+function fetchAirData() {
+
+    var airQualityDataEl= document.getElementById("list")
+    var airQualityLi = document.createElement("li");
+
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+      
+      fetch("http://api.airvisual.com/v2/city?city=Los Angeles&state=California&country=USA&key=" + apiKeyAq, requestOptions)
+        .then(response => response.json())
+        .then(result => data = result)
+        .catch(error => console.log('error', error));
+        airQualityDataEl.appendChild(airQualityLi);
+        airQualityLi.textContent = data.data.Country
+}
+
+var returnButtonEl = document.getElementById("#returnButton")
+returnButtonEl.addEventListener("click", returnToSearch)
+
+function returnToSearch() {
+    console.log("button works")
+}
+
+

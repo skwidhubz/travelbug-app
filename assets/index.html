@@ -13,14 +13,14 @@
   </head>
 
   <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+
+
+     <!-- NAV BAR TOP OF PAGE  -->
+    <nav class="navbar navbar-color is-success" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
-          <img
-            src="https://bulma.io/images/bulma-logo.png"
-            width="112"
-            height="28"
-          />
+        <a class="navbar-item" href="./index.html">
+          <!-- TRAVEL BUG LOGO -->
+          <img src="./travelbug_logo.png">
         </a>
 
         <a
@@ -28,8 +28,7 @@
           class="navbar-burger"
           aria-label="menu"
           aria-expanded="false"
-          data-target="navbarBasicExample"
-        >
+          data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -38,24 +37,23 @@
 
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item"> Search </a>
+          <a class="navbar-item" id="location-search-nav"> Location Search </a>
 
-          <a class="navbar-item"> Air Quality </a>
+          <a class="navbar-item" id="air-quality-nav"> Air Quality </a>
 
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link"> More </a>
+          <a class="navbar-item" id="search-history-nav"> Search History </a>
 
-            <div class="navbar-dropdown">
-              <a class="navbar-item"> About </a>
-              <a class="navbar-item"> Search History </a>
-              <hr class="navbar-divider" />
-            </div>
-            
+          <a class="navbar-item" id="about-us-nav"> About Us </a>
+
+          
           </div>
         </div>
       </div>
     </nav>
   </body>
+
+
+      <!-- SEARCH PAGE LANDING PAGE -->
     <section class="page-container buttons" id="searchpage">
         <form class="input-field" role="search" >
         <div class="field">
@@ -71,32 +69,60 @@
         <div>
         </div>
       </section>
-    <section class="page-container hide" id="airquality">
-      <h1>Translate</h1>
-      <div>
-        
-      </div>
+
+      <!-- AIR QUALITY  -->
+      <section class="page-container" id="airquality">
+        <div class="container">
+            <h1></h1>
+              <h1 class="title">Air Quality Data for:</h1>
+              <h2 class="title is-4" id="location-name-aq">{{location name}}</h2>
+        </div>
+  
+        <div class="container">
+          <div class="notification is-secondary">
+            <ul>
+              ((this container div is a UL element and will be populated with LI from JS))
+            </ul>
+          </div>
+        </div>
+        <br>
+        <div class="buttons">
+          <button class="button is-warning" id="return-to-search-page-button">Return To Search Page</button>
+        </div>
+      </section>
+
+
+      <!-- SEARCH HISTORY PAGE  -->
+    <section class="page-container" id="history">
+      <h1 class="title is-3"> Search history </h1>
+        <div class="notification is-secondary">
+          <div id="search-history-list">
+              <ul>
+                ((this container div is a UL element and will be populated with LI from JS))
+              </ul>
+              </div>
+            </div>
+            <div class="buttons">
+              <button class="button is-warning" id="return-to-search-page-button">Return To Search Page</button>
+            </div>
     </section>
 
-    <section class="page-container hide" id="history" class="hide">
-      <h1> Search history </h1>
-      <div>
-        <ul>
-        
-        </ul>
-      </div>
-      <ul>
-        
-      </ul>
+
+    <section class="page-container" id="aboutus" >
+      <h1 class="title is-3">About us</h1>
+      
+        <p>
+          This is the about us page.
+        </p>
+        <br>
+        <div class="buttons">
+          <button class="button is-warning" id="return-to-search-page-button">Return To Search Page</button>
+        </div>
     </section>
 
 
-    <section class="page-container hide" id="aboutus" >
-      <h1>About us</h1>
-      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-    </section>
-
-
+<script src="./secrets.js"></script>
 <script src="./script.js"></script>
+
 </body>
 </html>

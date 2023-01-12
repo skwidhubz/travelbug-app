@@ -1,3 +1,7 @@
+:root {
+  
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -10,6 +14,10 @@ a {
 }
 
 /* HEADER AND NAVBAR  */
+
+#header-nav {
+  font-size: large;
+}
 
 .header ul li {
   display: inline;
@@ -31,6 +39,10 @@ a {
   justify-content: space-between;
 }
 
+.navbar-color {
+  background-color: lightgreen;
+}
+
 /* PAGE CONTAINERS */
 
 .page-container {
@@ -38,7 +50,9 @@ a {
   border-color: black;
   border-width: 2px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 #searchpage {
@@ -83,6 +97,9 @@ a {
   margin-top: 5px;
 }
 
+#hidden-page {
+  display: none;
+}
 #btn-locate {
   margin: 10px;
 }
@@ -108,6 +125,15 @@ a {
 
 #hidden-container {
   display: none;
+}
+
+
+/* AIR QUALITY PAGE  */
+
+#airquality {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hide {
