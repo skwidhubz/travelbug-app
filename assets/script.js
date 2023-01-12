@@ -1,7 +1,7 @@
 // Variables for buttons
 const btnSubmit = document.getElementById("submit-btn");
 const btnFind = document.getElementById("find-btn");
-const textBox = document.getElementById("text-box");
+const textBox = document.querySelector(".input");
 const historyEl = document.getElementById("history1");
 const historyList = document.getElementById("historyList");
 
@@ -11,6 +11,11 @@ function objective() {
   // need a button for locating me automactically
   // gonna be using function expressions
 }
+const areaText = function (e) {
+  e.preventDefault();
+  const language = textBox.value;
+  console.log(language);
+};
 
 const buttonSubmitHandler = function (e) {
   // Submit Button
@@ -24,17 +29,38 @@ const buttonFindLocationHandler = function (e) {
   console.log("Hello");
 };
 
-btnSubmit.addEventListener("click", buttonSubmitHandler);
-
-btnFind.addEventListener("click", buttonFindLocationHandler);
-
 // SEARCH HISTORY FUNCTION (HISTORY PAGE)((LOCAL STORAGE))
 function searchHistory() {
   historyList.innerHTML = textBox.value;
   const li = document.createElement("li");
   historyList.appendChild(li);
 }
-historyEl.addEventListener("click", searchHistory);
+
+const getLocation = function () {
+  const city = "paris";
+  const OpenApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=54f233828acf58994eefa05b9027dd89`;
+
+  fetch(OpenApi)
+    .then((response) => response.json())
+    .then((response) => console.log(response));
+};
+
+getLocation();
+
+// Google API
+const locateMe = function (lat, lng) {
+  const GoogleApi = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyBrNLhoIcFa9qPY_bPWF-qVPVF9qRS3dc8`;
+
+  fetch(GoogleApi)
+    .then((response) => response.json())
+    .then((response) => console.log(response));
+};
+locateMe(-37.96944, 145.04806);
+
+btnSubmit.addEventListener("click", areaText);
+btnFind.addEventListener("click", buttonFindLocationHandler);
+// historyEl.addEventListener("click", searchHistory);
+
 // function searchHistorySave(){
 //     save each user search "location name" --> saves to localStorage
 // }
