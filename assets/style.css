@@ -113,6 +113,11 @@ a {
   background-color: #ffffff;
 }
 
+.error-message {
+  display: flex;
+  justify-content: center;
+}
+
 a {
   text-decoration: none;
   color: #ffffff;
