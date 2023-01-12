@@ -6,7 +6,7 @@ const historyEl = document.getElementById("history1");
 const historyList = document.getElementById("historyList");
 const searchPage = document.getElementById("searchpage");
 const airQualityPage = document.getElementById("airquality");
-const searchHistoryPage = document.getElementById("history-page");
+const searchHistoryPage = document.getElementById("historypage");
 const aboutUsPage = document.getElementById("aboutuspage");
 
 
@@ -93,7 +93,7 @@ function fetchAirData() {
 }
 
 //  RETURN TO MAIN PAGE BUTTON 
-var returnButtonEl = document.getElementById("#returnButton")
+var returnButtonEl = document.getElementById("return-to-search-page-button")
 returnButtonEl.addEventListener("click", returnToSearch)
 
 function returnToSearch() {
@@ -102,6 +102,5 @@ function returnToSearch() {
     airQualityPage.setAttribute("style", "display: none");
     searchHistoryPage.setAttribute("style", "display: none");
     aboutUsPage.setAttribute("style", "display: none");
+    // setAttribute("class-name", "new class")
 }
-
-
