@@ -79,9 +79,35 @@ const successCallback = (position) => {
   console.log(position);
 };
 
+
 function getC() {
   navigator.geolocation.getCurrentPosition(successCallback);
 }
+
+const successCallback = (position) => {
+  console.log(position);
+};
+
+function getC() {
+  navigator.geolocation.getCurrentPosition(successCallback);
+}
+
+function streetAdd(address) {
+  const myAPI = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBrNLhoIcFa9qPY_bPWF-qVPVF9qRS3dc8`;
+  fetch(myAPI)
+    .then((response) => response.json())
+    .then((response) => {
+      if (response) {
+        console.log(response.results[0].formatted_address);
+      }
+    });
+}
+
+btnSubmit.addEventListener("click", areaText);
+btnFind.addEventListener("click", buttonFindLocationHandler);
+
+
+
 
 function streetAdd(address) {
   const myAPI = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBrNLhoIcFa9qPY_bPWF-qVPVF9qRS3dc8`;
