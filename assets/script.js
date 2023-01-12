@@ -53,7 +53,7 @@ function fetchAirData() {
         redirect: 'follow'
       };
       
-      fetch("http://api.airvisual.com/v2/city?city=Los Angeles&state=California&country=USA&key=3e4ec6e7-66fd-4056-9d5b-874e8d797d7c", requestOptions)
+      fetch("http://api.airvisual.com/v2/city?city=Los Angeles&state=California&country=USA&key=" + apiKeyAq, requestOptions)
         .then(response => response.json())
         .then(result => data = result)
         .catch(error => console.log('error', error));
