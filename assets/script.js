@@ -4,7 +4,13 @@ const btnFind = document.getElementById("find-btn");
 const textBox = document.querySelector(".input");
 const historyEl = document.getElementById("history1");
 const historyList = document.getElementById("historyList");
+const searchPage = document.getElementById("searchpage");
+const airQualityPage = document.getElementById("airquality");
+const searchHistoryPage = document.getElementById("historypage");
+const aboutUsPage = document.getElementById("aboutuspage");
+
 const myErrorBox = document.querySelector(".control");
+
 
 // Kayhan Objective Function
 function objective() {
@@ -118,6 +124,20 @@ function streetAdd(address) {
         console.log(response.results[0].formatted_address);
       }
     });
+}
+
+
+//  RETURN TO MAIN PAGE BUTTON 
+var returnButtonEl = document.getElementById("return-to-search-page-button")
+returnButtonEl.addEventListener("click", returnToSearch)
+
+function returnToSearch() {
+    console.log("button works")
+    searchPage.setAttribute("style", "display: flex");
+    airQualityPage.setAttribute("style", "display: none");
+    searchHistoryPage.setAttribute("style", "display: none");
+    aboutUsPage.setAttribute("style", "display: none");
+    // setAttribute("class-name", "new class")
 }
 
 btnSubmit.addEventListener("click", areaText);
