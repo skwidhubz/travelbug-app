@@ -4,6 +4,11 @@ const btnFind = document.getElementById("find-btn");
 const textBox = document.querySelector(".input");
 const historyEl = document.getElementById("history1");
 const historyList = document.getElementById("historyList");
+const searchPage = document.getElementById("searchpage");
+const airQualityPage = document.getElementById("airquality");
+const searchHistoryPage = document.getElementById("history-page");
+const aboutUsPage = document.getElementById("aboutuspage");
+
 
 // Kayhan Objective Function
 function objective() {
@@ -87,11 +92,16 @@ function fetchAirData() {
         airQualityLi.textContent = data.data.Country
 }
 
+//  RETURN TO MAIN PAGE BUTTON 
 var returnButtonEl = document.getElementById("#returnButton")
 returnButtonEl.addEventListener("click", returnToSearch)
 
 function returnToSearch() {
     console.log("button works")
+    searchPage.setAttribute("style", "display: flex");
+    airQualityPage.setAttribute("style", "display: none");
+    searchHistoryPage.setAttribute("style", "display: none");
+    aboutUsPage.setAttribute("style", "display: none");
 }
 
 
