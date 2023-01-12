@@ -8,8 +8,8 @@ const searchPage = document.getElementById("searchpage");
 const airQualityPage = document.getElementById("airquality");
 const searchHistoryPage = document.getElementById("historypage");
 const aboutUsPage = document.getElementById("aboutuspage");
-
 const myErrorBox = document.querySelector(".control");
+
 
 
 
@@ -19,6 +19,7 @@ function objective() {
   // need a button for locating me automactically
   // gonna be using function expressions
 }
+
 const areaText = function (e) {
   e.preventDefault();
   const language = textBox.value;
@@ -54,7 +55,6 @@ function searchHistory() {
 }
 
 const getLocation = function (user) {
-  // const city = "paris";
   const OpenApi = `https://api.openweathermap.org/data/2.5/weather?q=${user}&appid=54f233828acf58994eefa05b9027dd89`;
 
   fetch(OpenApi)
@@ -77,6 +77,11 @@ const locateMe = function (lat, lng) {
     .then((response) => console.log(response));
 };
 
+
+const successCallback = (position) => {
+  console.log(position);
+};
+
 // historyEl.addEventListener("click", searchHistory);
 
 // function searchHistorySave(){
@@ -90,37 +95,65 @@ function getC() {
 
 
 
+
 function getC() {
   navigator.geolocation.getCurrentPosition(successCallback);
 }
 
+getC();
+// function streetAdd(address) {
+//   const myAPI = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBrNLhoIcFa9qPY_bPWF-qVPVF9qRS3dc8`;
+//   fetch(myAPI)
+//     .then((response) => response.json())
+//     .then((response) => {
+//       if (response) {
+//         console.log(response);
+//       }
+//     });
+// }
+
 function streetAdd(address) {
   const myAPI = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBrNLhoIcFa9qPY_bPWF-qVPVF9qRS3dc8`;
   fetch(myAPI)
     .then((response) => response.json())
     .then((response) => {
       if (response) {
+        const lat = response.results[0].geometry.location.lat;
+        const lng = response.results[0].geometry.location.lng;
         console.log(response.results[0].formatted_address);
+        fetchAirData(lat, lng);
       }
     });
 }
 
+//  RETURN TO MAIN PAGE BUTTON
+var returnButtonEl = document.getElementById("return-to-search-page-button");
+
+function returnToSearch() {
+  console.log("button works");
+  searchPage.setAttribute("style", "display: flex");
+  airQualityPage.setAttribute("style", "display: none");
+  searchHistoryPage.setAttribute("style", "display: none");
+  aboutUsPage.setAttribute("style", "display: none");
+  // setAttribute("class-name", "new class")
+}
+
+function fetchAirData(lat, lon) {
+  const airApi = `http://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lon}&key=3e4ec6e7-66fd-4056-9d5b-874e8d797d7c`;
+  fetch(airApi)
+    .then((response) => response.json())
+    .then((response) => {
+      console.log(response.data.current.pollution);
+    });
+}
+
+
+// const returnButtonEl = document.getElementById("#returnButton");
 btnSubmit.addEventListener("click", areaText);
 btnFind.addEventListener("click", buttonFindLocationHandler);
-
-
-
-
-function streetAdd(address) {
-  const myAPI = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBrNLhoIcFa9qPY_bPWF-qVPVF9qRS3dc8`;
-  fetch(myAPI)
-    .then((response) => response.json())
-    .then((response) => {
-      if (response) {
-        console.log(response.results[0].formatted_address);
-      }
-    });
-}
+btnSubmit.addEventListener("click", areaText);
+btnFind.addEventListener("click", buttonFindLocationHandler);
+returnButtonEl.addEventListener("click", returnToSearch);
 
 
 
@@ -222,3 +255,4 @@ function aboutUsPageFunc(){
   searchHistoryPage.setAttribute("style", "display: none");
   aboutUsPage.setAttribute("style", "display: flex");
 }
+

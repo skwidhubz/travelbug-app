@@ -1,6 +1,6 @@
-:root {
+/* :root {
   
-}
+} */
 
 * {
   box-sizing: border-box;
@@ -126,7 +126,6 @@ a {
 #hidden-container {
   display: none;
 }
-
 
 /* AIR QUALITY PAGE  */
 
