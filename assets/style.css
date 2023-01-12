@@ -127,6 +127,10 @@ a {
   display: none;
 }
 
+#h-class{
+  font-weight: bold;
+}
+
 /* AIR QUALITY PAGE  */
 
 #airquality {
@@ -137,4 +141,10 @@ a {
 
 .hide {
   display: none;
+}
+
+/* MISC CLASSES AND IDS FOR TARGETED CSS */
+
+#about-us-list {
+  list-style: circle;
 }
