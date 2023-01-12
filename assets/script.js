@@ -75,6 +75,14 @@ const locateMe = function (lat, lng) {
 // function searchHistorySave(){
 //     save each user search "location name" --> saves to localStorage
 // }
+const successCallback = (position) => {
+  console.log(position);
+};
+
+
+function getC() {
+  navigator.geolocation.getCurrentPosition(successCallback);
+}
 
 const successCallback = (position) => {
   console.log(position);
@@ -101,31 +109,44 @@ btnFind.addEventListener("click", buttonFindLocationHandler);
 
 
 
+function streetAdd(address) {
+  const myAPI = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBrNLhoIcFa9qPY_bPWF-qVPVF9qRS3dc8`;
+  fetch(myAPI)
+    .then((response) => response.json())
+    .then((response) => {
+      if (response) {
+        console.log(response.results[0].formatted_address);
+      }
+    });
+}
 
+btnSubmit.addEventListener("click", areaText);
+btnFind.addEventListener("click", buttonFindLocationHandler);
 
 function fetchAirData() {
+  var airQualityDataEl = document.getElementById("list");
+  var airQualityLi = document.createElement("li");
 
-    var airQualityDataEl= document.getElementById("list")
-    var airQualityLi = document.createElement("li");
+  var requestOptions = {
+    method: "GET",
+    redirect: "follow",
+  };
 
-    var requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-      };
-      
-      fetch("http://api.airvisual.com/v2/city?city=Los Angeles&state=California&country=USA&key=" + apiKeyAq, requestOptions)
-        .then(response => response.json())
-        .then(result => data = result)
-        .catch(error => console.log('error', error));
-        airQualityDataEl.appendChild(airQualityLi);
-        airQualityLi.textContent = data.data.Country
+  fetch(
+    "http://api.airvisual.com/v2/city?city=Los Angeles&state=California&country=USA&key=" +
+      apiKeyAq,
+    requestOptions
+  )
+    .then((response) => response.json())
+    .then((result) => (data = result))
+    .catch((error) => console.log("error", error));
+  airQualityDataEl.appendChild(airQualityLi);
+  airQualityLi.textContent = data.data.Country;
 }
 
-var returnButtonEl = document.getElementById("#returnButton")
-returnButtonEl.addEventListener("click", returnToSearch)
+var returnButtonEl = document.getElementById("#returnButton");
+returnButtonEl.addEventListener("click", returnToSearch);
 
 function returnToSearch() {
-    console.log("button works")
+  console.log("button works");
 }
-
-
