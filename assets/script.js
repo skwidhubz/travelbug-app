@@ -88,6 +88,12 @@ function getC() {
   navigator.geolocation.getCurrentPosition(successCallback);
 }
 
+
+
+function getC() {
+  navigator.geolocation.getCurrentPosition(successCallback);
+}
+
 function streetAdd(address) {
   const myAPI = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBrNLhoIcFa9qPY_bPWF-qVPVF9qRS3dc8`;
   fetch(myAPI)
@@ -133,6 +139,7 @@ function returnToSearch() {
     // setAttribute("class-name", "new class")
 }
 
+
 btnSubmit.addEventListener("click", areaText);
 btnFind.addEventListener("click", buttonFindLocationHandler);
 
@@ -157,11 +164,27 @@ function fetchAirData() {
   airQualityLi.textContent = data.data.Country;
 }
 
+
 var returnButtonEl = document.getElementById("return-to-search-page-button");
 returnButtonEl.addEventListener("click", returnToSearch);
 
 function returnToSearch() {
   console.log("button works")
+
+
+
+
+
+
+
+
+// RETURN TO SEARCH BUTTON LISTENER AND FUNCTION
+
+const returnButtonEl = document.getElementById("return-to-search-page-button");
+returnButtonEl.addEventListener("click", returnToSearch);
+
+function returnToSearch() {
+
   searchPage.setAttribute("style", "display: flex");
   airQualityPage.setAttribute("style", "display: none");
   searchHistoryPage.setAttribute("style", "display: none");
