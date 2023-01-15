@@ -74,7 +74,6 @@ const locateMe = function (lat, lng) {
   fetch(GoogleApi)
     .then((response) => response.json())
     .then((response) => {
-      console.log(response);
       airContainer.innerText = response.plus_code.compound_code;
     });
 };
@@ -94,6 +93,7 @@ function showPosition(position) {
     position.coords.longitude;
   const lat = position.coords.latitude;
   const lng = position.coords.longitude;
+  console.log(lat, lng);
   locateMe(lat, lng);
 }
 // historyEl.addEventListener("click", searchHistory);
