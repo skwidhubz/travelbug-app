@@ -46,7 +46,7 @@ const buttonFindLocationHandler = function (e) {
   console.log("Hello");
 };
 
-// SEARCH HISTORY PAGE 
+// SEARCH HISTORY PAGE
 // SEARCH HISTORY FUNCTION (HISTORY PAGE)((LOCAL STORAGE))
 
 var storageArray = [];
@@ -56,19 +56,19 @@ function searchHistory(event) {
   // var storageArray = localStorage.getItem('value')
   storageArray.push(textBox.value);
 
-  localStorage.setItem('value', JSON.stringify(storageArray))
+  localStorage.setItem("value", JSON.stringify(storageArray));
 
   // var storageNameEl = localStorage.getItem('value')
-  
+
   const liEl = document.createElement("li");
   liEl.textContent = textBox.value;
   historyList.appendChild(liEl);
 
-  event.preventDefault(event)
+  event.preventDefault(event);
   // historyList.textContent = localStorage.getItem('value')
 }
 
-function clearLocalStorage(){
+function clearLocalStorage() {
   localStorage.clear();
   while (historyList.hasChildNodes()) {
     historyList.removeChild(historyList.firstChild);
@@ -76,7 +76,7 @@ function clearLocalStorage(){
 }
 
 var clearHistoryBtn = document.getElementById("clear-history-list");
-clearHistoryBtn.addEventListener("click", clearLocalStorage)
+clearHistoryBtn.addEventListener("click", clearLocalStorage);
 
 const getLocation = function (user) {
   const OpenApi = `https://api.openweathermap.org/data/2.5/weather?q=${user}&appid=54f233828acf58994eefa05b9027dd89`;
@@ -99,7 +99,6 @@ const locateMe = function (lat, lng) {
   fetch(GoogleApi)
     .then((response) => response.json())
     .then((response) => {
-      console.log(response);
       airContainer.innerText = response.plus_code.compound_code;
     });
 };
@@ -119,6 +118,7 @@ function showPosition(position) {
     position.coords.longitude;
   const lat = position.coords.latitude;
   const lng = position.coords.longitude;
+  console.log(lat, lng);
   locateMe(lat, lng);
 }
 // historyEl.addEventListener("click", searchHistory);
@@ -298,7 +298,7 @@ function aboutUsPageFunc() {
   aboutUsPage.setAttribute("style", "display: flex");
 }
 
-//  RETURN TO MAIN PAGE BUTTON 
+//  RETURN TO MAIN PAGE BUTTON
 var returnButtonEl = document.getElementById("return-to-search-page-button");
 var returnButton1El = document.getElementById("return-to-search-page-button-1");
 var returnButton2El = document.getElementById("return-to-search-page-button-2");
@@ -307,10 +307,10 @@ returnButton1El.addEventListener("click", returnToSearch);
 returnButton2El.addEventListener("click", returnToSearch);
 
 function returnToSearch(event) {
-    event.preventDefault();
-    console.log("button works");
-    searchPage.setAttribute("style", "display: flex");
-    airQualityPage.setAttribute("style", "display: none");
-    searchHistoryPage.setAttribute("style", "display: none");
-    aboutUsPage.setAttribute("style", "display: none");
+  event.preventDefault();
+  console.log("button works");
+  searchPage.setAttribute("style", "display: flex");
+  airQualityPage.setAttribute("style", "display: none");
+  searchHistoryPage.setAttribute("style", "display: none");
+  aboutUsPage.setAttribute("style", "display: none");
 }
