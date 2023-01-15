@@ -75,10 +75,16 @@ const locateMe = function (lat, lng) {
     .then((response) => console.log(response));
 };
 
-const successCallback = (position) => {
-  console.log(position);
+const successCallback = function (position) {
+  console.log(position.coords.latitude);
+  console.log(position.coords.longitude);
+  const lat = position.coords.latitude;
+  const long = position.coords.longitude;
+  getMyCoords(lat, long);
 };
-
+const getMyCoords = function (lat, long) {
+  return console.log(lat, long);
+};
 // historyEl.addEventListener("click", searchHistory);
 
 // function searchHistorySave(){
@@ -159,10 +165,11 @@ function fetchAirData(lat, lon) {
       airContainer.appendChild(tp);
       airContainer.appendChild(hu);
       airContainer.appendChild(ws);
+      // Need the icon missing it
       // icon.src =
       ts.innerText = `Timestamp: ${response.data.current.weather.ts}`;
-      aqius.innerText = `Aqius: ${response.data.current.pollution.aqius} AQI`;
-      aqicn.innerText = `Aqicn: ${response.data.current.pollution.aqius} AQI`;
+      aqicn.innerText = `Aqius: ${response.data.current.pollution.aqius} AQI`;
+      aqius.innerText = `Aqicn: ${response.data.current.pollution.aqicn} AQI`;
       tp.innerText = `temperature: ${response.data.current.weather.tp}°C`;
       hu.innerText = `Humidity: ${response.data.current.weather.hu}%`;
       ws.innerText = `Wind speed: ${response.data.current.weather.ws}m/s`;
@@ -190,7 +197,7 @@ function returnToSearch() {
 }
 
 btnSubmit.addEventListener("click", areaText);
-btnFind.addEventListener("click", buttonFindLocationHandler);
+btnFind.addEventListener("click", getMyCoords);
 
 // function fetchAirData() {
 //   var airQualityDataEl = document.getElementById("list");
