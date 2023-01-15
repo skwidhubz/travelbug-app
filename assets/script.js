@@ -43,7 +43,7 @@ const buttonFindLocationHandler = function (e) {
   // Submit Button
   e.preventDefault();
   console.log("Hello");
-  searchHistory();
+  // searchHistory();
 };
 
 // SEARCH HISTORY PAGE 
@@ -64,7 +64,7 @@ function searchHistory(event) {
   liEl.textContent = textBox.value;
   historyList.appendChild(liEl);
 
-  event.preventDefault()
+  event.preventDefault(event)
   // historyList.textContent = localStorage.getItem('value')
 }
 
