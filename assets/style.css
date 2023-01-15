@@ -91,19 +91,16 @@ a {
   border-color: #333333;
 }
 
+/* BUTTON BEHAVIOURS */
+
 #btn-control {
   margin: auto;
   display: flex;
   margin-top: 5px;
 }
-
-#hidden-page {
-  display: none;
-}
 #btn-locate {
   margin: 10px;
 }
-
 #btn-control:hover {
   color: #000000;
   background-color: #ffffff;
@@ -112,6 +109,8 @@ a {
   color: #000000;
   background-color: #ffffff;
 }
+
+/* OTHER MISC FUNCTIONS */
 
 .error-message {
   display: flex;
@@ -127,6 +126,10 @@ a {
   display: none;
 }
 
+#h-class{
+  font-weight: bold;
+}
+
 /* AIR QUALITY PAGE  */
 
 #airquality {
@@ -135,6 +138,17 @@ a {
   justify-content: center;
 }
 
+/* MISC CLASSES AND IDS FOR TARGETED CSS */
+
+#about-us-list {
+  list-style: none;
+}
+
 .hide {
   display: none;
 }
+
+#hidden-page {
+  display: none;
+}
+
