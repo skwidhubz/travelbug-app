@@ -1,4 +1,5 @@
 // Variables for buttons
+const airContainer = document.querySelector(".air-q");
 const btnSubmit = document.getElementById("submit-btn");
 const btnFind = document.getElementById("find-btn");
 const textBox = document.querySelector(".input");
@@ -72,8 +73,29 @@ const locateMe = function (lat, lng) {
 
   fetch(GoogleApi)
     .then((response) => response.json())
-    .then((response) => console.log(response));
+    .then((response) => {
+      console.log(response);
+      airContainer.innerText = response.plus_code.compound_code;
+    });
 };
+
+function getMyLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(showPosition);
+  } else {
+    console.log("hi");
+  }
+}
+function showPosition(position) {
+  airContainer.innerHTML =
+    "Latitude: " +
+    position.coords.latitude +
+    "<br>Longitude: " +
+    position.coords.longitude;
+  const lat = position.coords.latitude;
+  const lng = position.coords.longitude;
+  locateMe(lat, lng);
+}
 // historyEl.addEventListener("click", searchHistory);
 
 // function searchHistorySave(){
@@ -123,7 +145,6 @@ function returnToSearch() {
 }
 
 function fetchAirData(lat, lon) {
-  const airContainer = document.querySelector(".air-q");
   const airApi = `http://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lon}&key=3e4ec6e7-66fd-4056-9d5b-874e8d797d7c`;
   fetch(airApi)
     .then((response) => response.json())
@@ -179,7 +200,7 @@ function returnToSearch() {
 }
 
 btnSubmit.addEventListener("click", areaText);
-btnFind.addEventListener("click", showPosition);
+// btnFind.addEventListener("click", showPosition);
 
 // function fetchAirData() {
 //   var airQualityDataEl = document.getElementById("list");
