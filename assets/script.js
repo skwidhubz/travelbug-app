@@ -46,12 +46,37 @@ const buttonFindLocationHandler = function (e) {
   console.log("Hello");
 };
 
+// SEARCH HISTORY PAGE 
 // SEARCH HISTORY FUNCTION (HISTORY PAGE)((LOCAL STORAGE))
-function searchHistory() {
-  historyList.innerHTML = textBox.value;
-  const li = document.createElement("li");
-  historyList.appendChild(li);
+
+var storageArray = [];
+
+function searchHistory(event) {
+  // e.preventDefault();
+  // var storageArray = localStorage.getItem('value')
+  storageArray.push(textBox.value);
+
+  localStorage.setItem('value', JSON.stringify(storageArray))
+
+  // var storageNameEl = localStorage.getItem('value')
+  
+  const liEl = document.createElement("li");
+  liEl.textContent = textBox.value;
+  historyList.appendChild(liEl);
+
+  event.preventDefault(event)
+  // historyList.textContent = localStorage.getItem('value')
 }
+
+function clearLocalStorage(){
+  localStorage.clear();
+  while (historyList.hasChildNodes()) {
+    historyList.removeChild(historyList.firstChild);
+  }
+}
+
+var clearHistoryBtn = document.getElementById("clear-history-list");
+clearHistoryBtn.addEventListener("click", clearLocalStorage)
 
 const getLocation = function (user) {
   const OpenApi = `https://api.openweathermap.org/data/2.5/weather?q=${user}&appid=54f233828acf58994eefa05b9027dd89`;
@@ -271,4 +296,21 @@ function aboutUsPageFunc() {
   airQualityPage.setAttribute("style", "display: none");
   searchHistoryPage.setAttribute("style", "display: none");
   aboutUsPage.setAttribute("style", "display: flex");
+}
+
+//  RETURN TO MAIN PAGE BUTTON 
+var returnButtonEl = document.getElementById("return-to-search-page-button");
+var returnButton1El = document.getElementById("return-to-search-page-button-1");
+var returnButton2El = document.getElementById("return-to-search-page-button-2");
+returnButtonEl.addEventListener("click", returnToSearch);
+returnButton1El.addEventListener("click", returnToSearch);
+returnButton2El.addEventListener("click", returnToSearch);
+
+function returnToSearch(event) {
+    event.preventDefault();
+    console.log("button works");
+    searchPage.setAttribute("style", "display: flex");
+    airQualityPage.setAttribute("style", "display: none");
+    searchHistoryPage.setAttribute("style", "display: none");
+    aboutUsPage.setAttribute("style", "display: none");
 }
