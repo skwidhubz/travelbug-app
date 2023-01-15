@@ -74,32 +74,14 @@ const locateMe = function (lat, lng) {
     .then((response) => response.json())
     .then((response) => console.log(response));
 };
-
-const successCallback = function (position) {
-  console.log(position.coords.latitude);
-  console.log(position.coords.longitude);
-  const lat = position.coords.latitude;
-  const long = position.coords.longitude;
-  getMyCoords(lat, long);
-};
-const getMyCoords = function (lat, long) {
-  return console.log(lat, long);
-};
 // historyEl.addEventListener("click", searchHistory);
 
 // function searchHistorySave(){
 //     save each user search "location name" --> saves to localStorage
 // }
 
-function getC() {
-  navigator.geolocation.getCurrentPosition(successCallback);
-}
+// navigator.geolocation.getCurrentPosition(successCallback);
 
-function getC() {
-  navigator.geolocation.getCurrentPosition(successCallback);
-}
-
-getC();
 // function streetAdd(address) {
 //   const myAPI = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBrNLhoIcFa9qPY_bPWF-qVPVF9qRS3dc8`;
 //   fetch(myAPI)
@@ -197,7 +179,7 @@ function returnToSearch() {
 }
 
 btnSubmit.addEventListener("click", areaText);
-btnFind.addEventListener("click", getMyCoords);
+btnFind.addEventListener("click", showPosition);
 
 // function fetchAirData() {
 //   var airQualityDataEl = document.getElementById("list");
