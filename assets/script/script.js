@@ -5,7 +5,7 @@ const btnFind = document.getElementById("find-btn");
 // const textBox = document.querySelector(".input"); // query select textbox input
 const textBox = document.getElementById("text-box-input");
 const historyEl = document.getElementById("history1");
-const historyList = document.getElementById("historyList");
+const historyList = document.getElementById("history-ul-list");
 const searchPage = document.getElementById("searchpage");
 const airQualityPage = document.getElementById("airquality");
 const searchHistoryPage = document.getElementById("historypage");
@@ -185,6 +185,7 @@ function fetchAirData(lat, lon) {
 
 // const returnButtonEl = document.getElementById("#returnButton");
 btnSubmit.addEventListener("click", areaText);
+btnSubmit.addEventListener("click", searchHistory);
 btnSubmit.addEventListener("click", airQualityPageFunc);
 btnFind.addEventListener("click", buttonFindLocationHandler);
 
@@ -214,7 +215,7 @@ function returnToSearch() {
   // document.getElementById("ul-airqual").innerHTML="";
 // }
 
-btnSubmit.addEventListener("click", areaText);
+// btnSubmit.addEventListener("click", areaText);
 // btnFind.addEventListener("click", showPosition);
 
 // RETURN TO SEARCH BUTTON LISTENER AND FUNCTION
@@ -274,3 +275,4 @@ function returnToSearch(event) {
   searchHistoryPage.setAttribute("style", "display: none");
   aboutUsPage.setAttribute("style", "display: none");
 }
+
