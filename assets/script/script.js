@@ -19,6 +19,7 @@ const navAboutEl = document.getElementById("about-us-nav");
 const returnButtonEl = document.getElementById("return-to-search-page-button");
 const returnButton1El = document.getElementById("return-to-search-page-button-1");
 const returnButton2El = document.getElementById("return-to-search-page-button-2");
+const locateText = document.getElementById("locate-text");
 
 
 // Kayhan Objective Function
@@ -108,9 +109,11 @@ const locateMe = function (lat, lng) {
   fetch(GoogleApi)
     .then((response) => response.json())
     .then((response) => {
-      airContainer.innerText = response.plus_code.compound_code;
+      locateText.innerHTML = response.plus_code.compound_code;
     });
 };
+
+// textBox.placeholder = "Type name here..";
 
 function getMyLocation() {
   if (navigator.geolocation) {
