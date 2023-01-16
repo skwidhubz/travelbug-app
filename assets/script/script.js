@@ -50,7 +50,7 @@ const buttonFindLocationHandler = function (e) {
 
 // SEARCH HISTORY FUNCTION (HISTORY PAGE)((LOCAL STORAGE))
 
-var storageArray = []; //empty array to store search query
+var storageArray = JSON.parse(localStorage.getItem("value")) || []; //empty array to store search query
 
 function searchHistory(event) {
   
@@ -151,6 +151,7 @@ function fetchAirData(lat, lon) {
         "src",
         `https://www.airvisual.com/images/${response.data.current.weather.ic}.png`
       );
+      icon.setAttribute("style", "width: 80px; height: 80px")
       console.log(response.data.current.weather.ic);
       airContainer.appendChild(icon);
       airContainer.appendChild(ts);
