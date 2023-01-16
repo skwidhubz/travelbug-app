@@ -14,6 +14,9 @@ Each location submission is saved to the "Search History" tab.
 
 For more information please access the "About" tab on the TravelBug application.
 
+![Screenshot_20230116_064213](https://user-images.githubusercontent.com/81959922/212623562-6b30903e-932e-472b-b88e-5e5a38d8deaf.png)
+
+
 ## Built With
 
 HTML
@@ -21,6 +24,12 @@ CSS
 JavaScript
 bulma
 
-## Installation
-
 ## Contact me
+
+D.Sharma - dhruvsharma2004@outlook.com
+K.Mamak - kayhanturk90@live.com
+T.Parker - tommaxwellparker@gmail.com
+
+https://github.com/byunn90
+https://github.com/Dhruv-232
+https://github.com/skwidhubz
