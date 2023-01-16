@@ -22,6 +22,7 @@ function objective() {
 const areaText = function (e) {
   e.preventDefault();
   const language = textBox.value;
+  language.innerHTML = "Hi";
   if (language) {
     streetAdd(language);
   } else {
@@ -177,7 +178,6 @@ function fetchAirData(lat, lon) {
       console.log(response);
       console.log(response.data.current.pollution);
       const icon = document.createElement("img");
-
       const aqius = document.createElement("h1");
       const ts = document.createElement("h1");
       const aqicn = document.createElement("h1");
