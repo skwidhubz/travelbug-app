@@ -14,7 +14,14 @@ Each location submission is saved to the "Search History" tab.
 
 For more information please access the "About" tab on the TravelBug application.
 
+## Desktop version:
+
 ![Screenshot_20230116_064213](https://user-images.githubusercontent.com/81959922/212623562-6b30903e-932e-472b-b88e-5e5a38d8deaf.png)
+
+## Mobile version:
+
+![Screenshot_20230116_070434](https://user-images.githubusercontent.com/81959922/212627494-34cab9e8-ed1e-4a28-ad37-58b4465f05cd.png)
+
 
 ## Link to application
 
