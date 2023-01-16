@@ -156,7 +156,7 @@ function fetchAirData(lat, lon) {
       console.log(response);
       console.log(response.data.current.pollution);
       const icon = document.createElement("img");
-      const myimge = response.data.current.weather.ic;
+      // const myimge = response.data.current.weather.ic;
       const aqius = document.createElement("h1");
       const ts = document.createElement("h1");
       const aqicn = document.createElement("h1");
@@ -164,6 +164,10 @@ function fetchAirData(lat, lon) {
       const hu = document.createElement("h1");
       const ws = document.createElement("h1");
       // icon.setAttribute("src", `./${myimge.png}`);
+      icon.setAttribute(
+        "src",
+        `https://www.airvisual.com/images/${response.data.current.weather.ic}.png`
+      );
       console.log(response.data.current.weather.ic);
       airContainer.appendChild(icon);
       airContainer.appendChild(ts);
