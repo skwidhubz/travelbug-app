@@ -5,96 +5,152 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TravelBug 🐛</title>
-    <link rel="stylesheet" href="./assets/style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-
+    <!-- title bar icon link  -->
+    <link rel="icon" href="./assets/images/images_web/title_bar_icon.png" type="image/icon type">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
   </head>
-
   <body>
 
-    <div class="header">
-      <section class="main-header">
-        <h1>TravelBug 🐛</h1>
-      </section>
+     <!-- NAV BAR TOP OF PAGE  -->
+    <nav class="navbar navbar-color is-info" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item">
+          <!-- TRAVEL BUG LOGO -->
+          <img src="./assets/images/images_web/travelbug_logo_web.png" alt="logo with the worlds Travel Bug and a caterpillar emoji">
+        </a>
 
-      <section class="navbar-links">
-        <ul>
-          <li><a href="#search"> Search </a></li>
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
 
-          <li><a href="#airquality"> Air Quality </a></li>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start nav-optimize">
+          <a class="navbar-item" id="location-search-nav"> Location Search </a>
+          <a class="navbar-item" id="air-quality-nav"> Air Quality </a>
+          <a class="navbar-item" id="search-history-nav"> Search History </a>
+          <a class="navbar-item" id="about-us-nav"> About Us </a>
+          </div>
+        </div>
+      </div>
+    </nav>
 
-          <li><a href="#history" id="history1"> History</a></li>
-
-          <li><a href="#aboutus">About us</a></li>
-        </ul>
-      </section>
-    </div>
-
-
+      <!-- SEARCH PAGE LANDING PAGE -->
     <section class="page-container buttons" id="searchpage">
         <form class="input-field" role="search" >
-          <input id="text-box" type="Search city" placeholder="Enter Location">
-          <button class="button is-link" id="submit-btn">Submit</button>
-          <button class="button is-success">Find My Location</button>
+        <div class="field">
+        <div class="field">
+          
+          <div class="control">
+            <input class="input" id="text-box-input" type="text" placeholder="Type in your address">
+          </div>
+        </div>
+        <button class="button is-success is-small" id="submit-btn">Submit</button>
+        <button class="button button is-info is-small " onclick="getMyLocation()" id="find-btn">Find My Location</button>
         </form>
-
         <div>
-
         </div>
       </section>
 
-    <section class="page-container" id="airquality">
-      <div class="container">
-        <div class="notification is-primary">
-          <h1></h1>
-            <h1 class="title">Air Quality Data for:</h1>
-            <h2 class="title is-3" id="location-name-aq">{{location name}}</h2>
+      <!-- AIR QUALITY  -->
+      <section class="page-container" id="airquality">
+        <div class="container">
+            <h1></h1>
+              <h1 class="title">Air Quality Data for:</h1>
+              <h2 class="title is-4" id="location-name-aq"></h2>
         </div>
-      </div>
+  
+        <div class="container">
+          <div class="notification is-secondary">
+            <ul class="air-q" id="ul-airqual">
+          
+            </ul>
+          </div>
+        </div>
+        <br>
+        <div class="buttons">
+          <button class="button is-primary" id="return-to-search-page-button">Return To Search Page</button>
+        </div>
+      </section>
 
-      <div class="container">
+
+      <!-- SEARCH HISTORY PAGE  -->
+    <section class="page-container" id="historypage">
+      <h1 class="title is-3"> Search history </h1>
         <div class="notification is-secondary">
-          <ul>
-              "ts": "2017-02-01T03:00:00.000Z",  //timestamp<br>
-              "aqius": 21, //AQI value based on US EPA standard<br>
-              "aqicn": 7, //AQI value based on China MEP standard<br>
-              "tp": 8, //temperature in Celsius<br>
-              "tp_min": 6, //minimum temperature in Celsius<br>
-              "pr": 976,  //atmospheric pressure in hPa<br>
-              "hu": 100, //humidity %<br>
-              "ws": 3, //wind speed (m/s)<br>
-              "wd": 313, //wind direction, as an angle of 360° (N=0, E=90, S=180, W=270)<br>
-              "ic": "10n" //weather icon code, see below for icon index<br>
-          </ul>
+          <div id="search-history-list">
+              <ul id="history-ul-list">
+
+              </ul>
+              </div>
+            </div>
+            <div class="buttons">
+              <button class="button is-danger" id="clear-history-list">Clear Search History</button>
+            </div>
+            <div class="buttons">
+              <button class="button is-primary" id="return-to-search-page-button-1">Return To Search Page</button>
+            </div>
+    </section>
+
+
+    <section class="page-container" id="aboutuspage" >
+      <h1 class="title is-3">About</h1>
+        <div id="app-info" class="notification is-secondary">
+          <p>
+            Enter your location to find nearest available air quality data.
+            If you don't know your current location, click the find location button then submit. 
+            <br>
+            <br>
+            The air quality data includes an AQI (Air Quality Index) for both US & China standards. 
+            The data also includes temperature, humidity and wind speed.
+          </p>
+
         </div>
-      </div>
 
-      <div class="buttons">
-        <button class="button is-warning">Return To Search</button>
-      </div>
+        <br>
+
+          <div id="dev-info" class="notification is-secondary">
+            <p>
+              <span id="h-class">TravelBug🐛</span> is created and coded by:
+                <br>
+                <br>
+                <ol id="about-us-list">
+                  <li>D.Sharma 🐄 <a href="https://github.com/Dhruv-232" target="blank">Dhruv-232</a></li>
+                  <li>K.Mamak 🐇 <a href="https://github.com/byunn90" target="blank">byunn90</a></li>
+                  <li>T.Parker 🦑<a href="https://github.com/skwidhubz" target="blank">skwidhubz</a></li>
+                </ol>
+                <br>
+                For enquiries please e-mail:<br>
+                <a href="mailto:dhruvsharma2004@outlook.com">Dhruv 📧</a><br>
+                <a href="mailto:kayhanturk90@live.com">Kayan 📧</a><br>
+                <a href="mailto:tommaxwellparker@gmail.com">Tom 📧</a><br>
+              </p>
+              <br>
+              <br>
+              <a href="https://www.flaticon.com/free-icons/caterpillar" title="caterpillar icons">Title Bar Icon design created by Khoirul Huda - Flaticon</a>
+          </div>
+        <br>
+          <div class="buttons">
+            <button class="button is-primary" id="return-to-search-page-button-2">Return To Search Page</button>
+          </div>
     </section>
 
-    <section class="page-container" id="history">
-      <h1> Search history </h1>
-      <div>
-        <ul id="historyList">
-        
-        </ul>
-      </div>
-      
-    </section>
-
-
-    <section class="page-container" id="aboutus">
-      <h1>About us</h1>
-      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-    </section>
-
-
-<script href="./assets/script_api.js"></script>
-    <script src="assets/script.js"></script>
+<!-- SCRIPT FILES LINKS -->
+<!-- <script src="./secrets.js"></script> -->
+<script src="./assets/script/script.js"></script>
+<!-- JQUERY SCRIPT LINK -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 </body>
 </html>
-
-

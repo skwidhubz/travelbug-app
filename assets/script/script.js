@@ -2,15 +2,24 @@
 const airContainer = document.querySelector(".air-q");
 const btnSubmit = document.getElementById("submit-btn");
 const btnFind = document.getElementById("find-btn");
-const textBox = document.querySelector(".input");
+// const textBox = document.querySelector(".input"); // query select textbox input
+const textBox = document.getElementById("text-box-input");
 const historyEl = document.getElementById("history1");
-const historyList = document.getElementById("historyList");
+const historyList = document.getElementById("history-ul-list");
 const searchPage = document.getElementById("searchpage");
 const airQualityPage = document.getElementById("airquality");
 const searchHistoryPage = document.getElementById("historypage");
 const aboutUsPage = document.getElementById("aboutuspage");
 const myErrorBox = document.querySelector(".control");
 const addressStatus = document.getElementById("location-name-aq");
+const navSearchEl = document.getElementById("location-search-nav");
+const navAirEl = document.getElementById("air-quality-nav");
+const navHistoryEl = document.getElementById("search-history-nav");
+const navAboutEl = document.getElementById("about-us-nav");
+const returnButtonEl = document.getElementById("return-to-search-page-button");
+const returnButton1El = document.getElementById("return-to-search-page-button-1");
+const returnButton2El = document.getElementById("return-to-search-page-button-2");
+
 
 // Kayhan Objective Function
 function objective() {
@@ -46,12 +55,12 @@ const buttonFindLocationHandler = function (e) {
   console.log("Hello");
 };
 
-// SEARCH HISTORY PAGE
 // SEARCH HISTORY FUNCTION (HISTORY PAGE)((LOCAL STORAGE))
 
-var storageArray = [];
+var storageArray = []; //empty array to store search query
 
 function searchHistory(event) {
+  
   // e.preventDefault();
   // var storageArray = localStorage.getItem('value')
   storageArray.push(textBox.value);
@@ -121,24 +130,6 @@ function showPosition(position) {
   console.log(lat, lng);
   locateMe(lat, lng);
 }
-// historyEl.addEventListener("click", searchHistory);
-
-// function searchHistorySave(){
-//     save each user search "location name" --> saves to localStorage
-// }
-
-// navigator.geolocation.getCurrentPosition(successCallback);
-
-// function streetAdd(address) {
-//   const myAPI = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBrNLhoIcFa9qPY_bPWF-qVPVF9qRS3dc8`;
-//   fetch(myAPI)
-//     .then((response) => response.json())
-//     .then((response) => {
-//       if (response) {
-//         console.log(response);
-//       }
-//     });
-// }
 
 function streetAdd(address) {
   const myAPI = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBrNLhoIcFa9qPY_bPWF-qVPVF9qRS3dc8`;
@@ -157,20 +148,8 @@ function streetAdd(address) {
     });
 }
 
-//  RETURN TO MAIN PAGE BUTTON
-var returnButtonEl = document.getElementById("return-to-search-page-button");
-
-function returnToSearch() {
-  console.log("button works");
-  searchPage.setAttribute("style", "display: flex");
-  airQualityPage.setAttribute("style", "display: none");
-  searchHistoryPage.setAttribute("style", "display: none");
-  aboutUsPage.setAttribute("style", "display: none");
-  // setAttribute("class-name", "new class")
-}
-
 function fetchAirData(lat, lon) {
-  const airApi = `http://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lon}&key=3e4ec6e7-66fd-4056-9d5b-874e8d797d7c`;
+  const airApi = `https://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lon}&key=3e4ec6e7-66fd-4056-9d5b-874e8d797d7c`;
   fetch(airApi)
     .then((response) => response.json())
     .then((response) => {
@@ -211,13 +190,12 @@ function fetchAirData(lat, lon) {
 
 // const returnButtonEl = document.getElementById("#returnButton");
 btnSubmit.addEventListener("click", areaText);
+btnSubmit.addEventListener("click", searchHistory);
+btnSubmit.addEventListener("click", airQualityPageFunc);
 btnFind.addEventListener("click", buttonFindLocationHandler);
-btnSubmit.addEventListener("click", areaText);
-btnFind.addEventListener("click", buttonFindLocationHandler);
-returnButtonEl.addEventListener("click", returnToSearch);
 
 //  RETURN TO MAIN PAGE BUTTON
-var returnButtonEl = document.getElementById("return-to-search-page-button");
+// const returnButtonEl = document.getElementById("return-to-search-page-button");
 returnButtonEl.addEventListener("click", returnToSearch);
 
 function returnToSearch() {
@@ -226,57 +204,43 @@ function returnToSearch() {
   airQualityPage.setAttribute("style", "display: none");
   searchHistoryPage.setAttribute("style", "display: none");
   aboutUsPage.setAttribute("style", "display: none");
+  $(".air-q").children().empty();
+  // clearAirData();
   // setAttribute("class-name", "new class")
+    // var airList = document.querySelector(".air-q");
+  // airList.textContent = "null";
 }
 
-btnSubmit.addEventListener("click", areaText);
-// btnFind.addEventListener("click", showPosition);
 
-// function fetchAirData() {
-//   var airQualityDataEl = document.getElementById("list");
-//   var airQualityLi = document.createElement("li");
-
-//   var requestOptions = {
-//     method: "GET",
-//     redirect: "follow",
-//   };
-
-//   fetch(
-//     "http://api.airvisual.com/v2/city?city=Los Angeles&state=California&country=USA&key=" +
-//       apiKeyAq,
-//     requestOptions
-//   )
-//     .then((response) => response.json())
-//     .then((result) => (data = result))
-//     .catch((error) => console.log("error", error));
-//   airQualityDataEl.appendChild(airQualityLi);
-//   airQualityLi.textContent = data.data.Country;
+//clear AQ-API data on refresh main page ***
+// function clearAirData()
+// {
+//   $(".air-q").children().empty();
+  // if(airContainer)
+  // document.getElementById("ul-airqual").innerHTML="";
 // }
 
-var returnButtonEl = document.getElementById("return-to-search-page-button");
-returnButtonEl.addEventListener("click", returnToSearch);
+// btnSubmit.addEventListener("click", areaText);
+// btnFind.addEventListener("click", showPosition);
 
-function returnToSearch() {
-  console.log("button works");
-}
 // RETURN TO SEARCH BUTTON LISTENER AND FUNCTION
 
 // const returnButtonEl = document.getElementById("return-to-search-page-button");
 returnButtonEl.addEventListener("click", returnToSearch);
 
-function returnToSearch() {
-  searchPage.setAttribute("style", "display: flex");
-  airQualityPage.setAttribute("style", "display: none");
-  searchHistoryPage.setAttribute("style", "display: none");
-  aboutUsPage.setAttribute("style", "display: none");
-}
+// function returnToSearch() {
+//   searchPage.setAttribute("style", "display: flex");
+//   airQualityPage.setAttribute("style", "display: none");
+//   searchHistoryPage.setAttribute("style", "display: none");
+//   aboutUsPage.setAttribute("style", "display: none");
+// }
 
 // NAV BAR EVEN LISTENERS AND FUNCTIONS
 
-const navSearchEl = document.getElementById("location-search-nav");
+
 navSearchEl.addEventListener("click", returnToSearch);
 
-const navAirEl = document.getElementById("air-quality-nav");
+
 navAirEl.addEventListener("click", airQualityPageFunc);
 function airQualityPageFunc() {
   searchPage.setAttribute("style", "display: none");
@@ -285,7 +249,7 @@ function airQualityPageFunc() {
   aboutUsPage.setAttribute("style", "display: none");
 }
 
-const navHistoryEl = document.getElementById("search-history-nav");
+
 navHistoryEl.addEventListener("click", searchHistoryPageFunc);
 function searchHistoryPageFunc() {
   searchPage.setAttribute("style", "display: none");
@@ -294,7 +258,7 @@ function searchHistoryPageFunc() {
   aboutUsPage.setAttribute("style", "display: none");
 }
 
-const navAboutEl = document.getElementById("about-us-nav");
+
 navAboutEl.addEventListener("click", aboutUsPageFunc);
 function aboutUsPageFunc() {
   searchPage.setAttribute("style", "display: none");
@@ -304,18 +268,16 @@ function aboutUsPageFunc() {
 }
 
 //  RETURN TO MAIN PAGE BUTTON
-var returnButtonEl = document.getElementById("return-to-search-page-button");
-var returnButton1El = document.getElementById("return-to-search-page-button-1");
-var returnButton2El = document.getElementById("return-to-search-page-button-2");
+
 returnButtonEl.addEventListener("click", returnToSearch);
 returnButton1El.addEventListener("click", returnToSearch);
 returnButton2El.addEventListener("click", returnToSearch);
 
 function returnToSearch(event) {
   event.preventDefault();
-  console.log("button works");
   searchPage.setAttribute("style", "display: flex");
   airQualityPage.setAttribute("style", "display: none");
   searchHistoryPage.setAttribute("style", "display: none");
   aboutUsPage.setAttribute("style", "display: none");
 }
+
