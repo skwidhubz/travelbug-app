@@ -149,7 +149,7 @@ function streetAdd(address) {
 }
 
 function fetchAirData(lat, lon) {
-  const airApi = `http://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lon}&key=3e4ec6e7-66fd-4056-9d5b-874e8d797d7c`;
+  const airApi = `https://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lon}&key=3e4ec6e7-66fd-4056-9d5b-874e8d797d7c`;
   fetch(airApi)
     .then((response) => response.json())
     .then((response) => {
