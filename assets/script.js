@@ -177,14 +177,18 @@ function fetchAirData(lat, lon) {
       console.log(response);
       console.log(response.data.current.pollution);
       const icon = document.createElement("img");
-      const myimge = response.data.current.weather.ic;
+
       const aqius = document.createElement("h1");
       const ts = document.createElement("h1");
       const aqicn = document.createElement("h1");
       const tp = document.createElement("h1");
       const hu = document.createElement("h1");
       const ws = document.createElement("h1");
-      // icon.setAttribute("src", `./${myimge.png}`);
+      icon.setAttribute(
+        "src",
+        `https://www.airvisual.com/images/${response.data.current.weather.ic}.png`
+      );
+
       console.log(response.data.current.weather.ic);
       airContainer.appendChild(icon);
       airContainer.appendChild(ts);
@@ -194,7 +198,8 @@ function fetchAirData(lat, lon) {
       airContainer.appendChild(hu);
       airContainer.appendChild(ws);
       // Need the icon missing it
-      // icon.src =
+      // console.log(myimge);
+      // myimge.src = `${response.data.current.weather.ic}.png`;
       ts.innerText = `Timestamp: ${response.data.current.weather.ts}`;
       aqicn.innerText = `Aqius: ${response.data.current.pollution.aqius} AQI`;
       aqius.innerText = `Aqicn: ${response.data.current.pollution.aqicn} AQI`;
