@@ -123,11 +123,11 @@ function getMyLocation() {
   }
 }
 function showPosition(position) {
-  airContainer.innerHTML =
-    "Latitude: " +
-    position.coords.latitude +
-    "<br>Longitude: " +
-    position.coords.longitude;
+  // airContainer.innerHTML =
+  //   "Latitude: " +
+  //   position.coords.latitude +
+  //   "<br>Longitude: " +
+  //   position.coords.longitude;
   const lat = position.coords.latitude;
   const lng = position.coords.longitude;
   console.log(lat, lng);
@@ -146,7 +146,7 @@ function streetAdd(address) {
         fetchAirData(lat, lng);
       }
       const addressBar = document.createElement("h1");
-      addressStatus.appendChild(addressBar);
+      airContainer.appendChild(addressBar);
       addressBar.innerText = ` ${response.results[0].formatted_address}`;
     });
 }
