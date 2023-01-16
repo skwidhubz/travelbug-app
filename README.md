@@ -16,6 +16,9 @@ For more information please access the "About" tab on the TravelBug application.
 
 ![Screenshot_20230116_064213](https://user-images.githubusercontent.com/81959922/212623562-6b30903e-932e-472b-b88e-5e5a38d8deaf.png)
 
+## Link to application
+
+https://skwidhubz.github.io/travelbug-app/
 
 ## Built With
 
@@ -26,10 +29,15 @@ bulma
 
 ## Contact me
 
-D.Sharma - dhruvsharma2004@outlook.com
-K.Mamak - kayhanturk90@live.com
-T.Parker - tommaxwellparker@gmail.com
+D.Sharma - dhruvsharma2004@outlook.com - https://github.com/Dhruv-232
 
-https://github.com/byunn90
-https://github.com/Dhruv-232
-https://github.com/skwidhubz
+K.Mamak - kayhanturk90@live.com - https://github.com/byunn90
+
+T.Parker - tommaxwellparker@gmail.com - https://github.com/skwidhubz
+
+
+
+
+
+
+
