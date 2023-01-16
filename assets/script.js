@@ -2,7 +2,8 @@
 const airContainer = document.querySelector(".air-q");
 const btnSubmit = document.getElementById("submit-btn");
 const btnFind = document.getElementById("find-btn");
-const textBox = document.querySelector(".input");
+// const textBox = document.querySelector(".input"); // query select textbox input
+const textBox = document.getElementById("text-box-input");
 const historyEl = document.getElementById("history1");
 const historyList = document.getElementById("historyList");
 const searchPage = document.getElementById("searchpage");
@@ -59,6 +60,7 @@ const buttonFindLocationHandler = function (e) {
 var storageArray = []; //empty array to store search query
 
 function searchHistory(event) {
+  
   // e.preventDefault();
   // var storageArray = localStorage.getItem('value')
   storageArray.push(textBox.value);
@@ -196,16 +198,21 @@ function returnToSearch() {
   airQualityPage.setAttribute("style", "display: none");
   searchHistoryPage.setAttribute("style", "display: none");
   aboutUsPage.setAttribute("style", "display: none");
-  clearAirData();
+  $(".air-q").children().empty();
+  // clearAirData();
   // setAttribute("class-name", "new class")
     // var airList = document.querySelector(".air-q");
   // airList.textContent = "null";
 }
 
-function clearAirData()
-{
-  document.getElementById("ul-airqual").innerHTML="";
-}
+
+//clear AQ-API data on refresh main page ***
+// function clearAirData()
+// {
+//   $(".air-q").children().empty();
+  // if(airContainer)
+  // document.getElementById("ul-airqual").innerHTML="";
+// }
 
 btnSubmit.addEventListener("click", areaText);
 // btnFind.addEventListener("click", showPosition);
@@ -215,12 +222,12 @@ btnSubmit.addEventListener("click", areaText);
 // const returnButtonEl = document.getElementById("return-to-search-page-button");
 returnButtonEl.addEventListener("click", returnToSearch);
 
-function returnToSearch() {
-  searchPage.setAttribute("style", "display: flex");
-  airQualityPage.setAttribute("style", "display: none");
-  searchHistoryPage.setAttribute("style", "display: none");
-  aboutUsPage.setAttribute("style", "display: none");
-}
+// function returnToSearch() {
+//   searchPage.setAttribute("style", "display: flex");
+//   airQualityPage.setAttribute("style", "display: none");
+//   searchHistoryPage.setAttribute("style", "display: none");
+//   aboutUsPage.setAttribute("style", "display: none");
+// }
 
 // NAV BAR EVEN LISTENERS AND FUNCTIONS
 
