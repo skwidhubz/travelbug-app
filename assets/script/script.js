@@ -50,6 +50,8 @@ const buttonFindLocationHandler = function (e) {
 
 // SEARCH HISTORY FUNCTION (HISTORY PAGE)((LOCAL STORAGE))
 
+// searchHistory();
+
 var storageArray = JSON.parse(localStorage.getItem("value")) || []; //empty array to store search query
 
 function searchHistory() {
@@ -61,7 +63,7 @@ function searchHistory() {
   for (let i = 0; i < storageArray.length; i++) {
     const element = storageArray[i];
     const liEl = document.createElement("li");
-    liEl.textContent = textBox.value;
+    liEl.textContent = element;
     historyList.appendChild(liEl);
     
   }
