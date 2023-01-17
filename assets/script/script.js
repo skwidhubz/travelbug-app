@@ -20,7 +20,6 @@ const returnButton1El = document.getElementById("return-to-search-page-button-1"
 const returnButton2El = document.getElementById("return-to-search-page-button-2");
 const locateText = document.getElementById("locate-text");
 
-
 const areaText = function (e) {
   e.preventDefault();
   const language = textBox.value;
@@ -50,34 +49,33 @@ const buttonFindLocationHandler = function (e) {
 
 // SEARCH HISTORY FUNCTION (HISTORY PAGE)((LOCAL STORAGE))
 
-// searchHistory();
+// page loaded populate function
 
 var storageArray = JSON.parse(localStorage.getItem("value")) || []; //empty array to store search query
 
-function searchHistory() {
-  
+function searchHistory() {  
+  historyList.innerHTML = "";
   storageArray.push(textBox.value);
-
   localStorage.setItem("value", JSON.stringify(storageArray));
+}
 
+// function to iterate and populate
+
+
+function populateHistory(){
+  historyList.innerHTML = "";
   for (let i = 0; i < storageArray.length; i++) {
     const element = storageArray[i];
     const liEl = document.createElement("li");
     liEl.textContent = element;
     historyList.appendChild(liEl);
-    
   }
-  // const liEl = document.createElement("li");
-  // liEl.textContent = textBox.value;
-  // historyList.appendChild(liEl);
-
-  event.preventDefault();
-}
-
-
+  // event.preventDefault();
+};
 
 function clearLocalStorage() {
   localStorage.clear();
+  storageArray = [];
   while (historyList.hasChildNodes()) {
     historyList.removeChild(historyList.firstChild);
   }
@@ -217,6 +215,7 @@ function airQualityPageFunc() {
 
 navHistoryEl.addEventListener("click", searchHistoryPageFunc);
 function searchHistoryPageFunc() {
+  populateHistory();
   searchPage.setAttribute("style", "display: none");
   airQualityPage.setAttribute("style", "display: none");
   searchHistoryPage.setAttribute("style", "display: flex");
