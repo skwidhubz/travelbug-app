@@ -52,18 +52,27 @@ const buttonFindLocationHandler = function (e) {
 
 var storageArray = JSON.parse(localStorage.getItem("value")) || []; //empty array to store search query
 
-function searchHistory(event) {
+function searchHistory() {
   
   storageArray.push(textBox.value);
 
   localStorage.setItem("value", JSON.stringify(storageArray));
 
-  const liEl = document.createElement("li");
-  liEl.textContent = textBox.value;
-  historyList.appendChild(liEl);
+  for (let i = 0; i < storageArray.length; i++) {
+    const element = storageArray[i];
+    const liEl = document.createElement("li");
+    liEl.textContent = textBox.value;
+    historyList.appendChild(liEl);
+    
+  }
+  // const liEl = document.createElement("li");
+  // liEl.textContent = textBox.value;
+  // historyList.appendChild(liEl);
 
-  event.preventDefault(event);
+  event.preventDefault();
 }
+
+
 
 function clearLocalStorage() {
   localStorage.clear();
