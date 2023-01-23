@@ -85,7 +85,7 @@ var clearHistoryBtn = document.getElementById("clear-history-list");
 clearHistoryBtn.addEventListener("click", clearLocalStorage);
 
 const getLocation = function (user) {
-  const OpenApi = `https://api.openweathermap.org/data/2.5/weather?q=${user}&appid=54f233828acf58994eefa05b9027dd89`;
+  const OpenApi = `https://api.openweathermap.org/data/2.5/weather?q=${user}&appid=((APIKEY))`;
 
   fetch(OpenApi)
     .then((response) => response.json())
@@ -100,7 +100,7 @@ const getLocation = function (user) {
 
 // Google API
 const locateMe = function (lat, lng) {
-  const GoogleApi = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyBrNLhoIcFa9qPY_bPWF-qVPVF9qRS3dc8`;
+  const GoogleApi = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=((APIKEY))`;
 
   fetch(GoogleApi)
     .then((response) => response.json())
@@ -126,7 +126,7 @@ function showPosition(position) {
 }
 
 function streetAdd(address) {
-  const myAPI = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBrNLhoIcFa9qPY_bPWF-qVPVF9qRS3dc8`;
+  const myAPI = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=((APIKEY))`;
   fetch(myAPI)
     .then((response) => response.json())
     .then((response) => {
@@ -143,7 +143,7 @@ function streetAdd(address) {
 }
 
 function fetchAirData(lat, lon) {
-  const airApi = `https://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lon}&key=3e4ec6e7-66fd-4056-9d5b-874e8d797d7c`;
+  const airApi = `https://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lon}&key=((APIKEY))`;
   fetch(airApi)
     .then((response) => response.json())
     .then((response) => {
